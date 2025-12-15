@@ -1,0 +1,16 @@
+/* page-slide.css: Slide in from left animation for admin pages */
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.page-slide {
+    animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}

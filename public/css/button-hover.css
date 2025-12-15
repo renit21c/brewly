@@ -1,0 +1,13 @@
+/* Add a smooth scale and shadow effect to all buttons on hover */
+button,
+.btn,
+[type="submit"] {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+button:hover,
+.btn:hover,
+[type="submit"]:hover {
+    transform: scale(1.04) translateY(-2px);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+}

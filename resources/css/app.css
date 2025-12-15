@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+
+    --color-cafe-gold: #dc8e22;
+    --color-cafe-peach: #fcbca4;
+    --color-cafe-rust: #a55c3c;
+    --color-cafe-latte: #a77661;
+    --color-cafe-sky: #aebcd4;
+    --color-cafe-coffee: #614234;
+}
