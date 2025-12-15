@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'products.destroy',
         ]);
 
-        // Report routes
+        // Report routesa
         Route::prefix('reports')->group(function () {
             Route::get('/daily', [ReportController::class, 'daily'])->name('reports.daily');
             Route::get('/monthly', [ReportController::class, 'monthly'])->name('reports.monthly');
