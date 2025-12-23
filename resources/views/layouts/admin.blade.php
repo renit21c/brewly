@@ -8,12 +8,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <!-- PWA Meta Tags -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#317EFB"/>
+    <meta name="theme-color" content="#0d9488"/>
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <link rel="apple-touch-icon" href="{{ asset('icon.svg') }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/build/assets/brewly3.png">
 
     <title>Brewly - Admin</title>
 
@@ -161,7 +162,7 @@
         // Register service worker for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
+                navigator.serviceWorker.register('/sw.js')
                     .then(reg => console.log('Service Worker registered:', reg))
                     .catch(err => console.log('Service Worker registration failed:', err));
             });

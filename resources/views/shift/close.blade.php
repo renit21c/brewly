@@ -110,7 +110,7 @@
     <script>
         const closingInput = document.getElementById('closing_balance');
         const differenceAlert = document.getElementById('differenceAlert');
-        const differenceAmount = document.getElementById('differenceAmount');
+        const differenceAmount = document.getEleme
         const expectedTotal = {{ $expectedTotal }};
         const openingBalance = {{ $shift->opening_balance }};
 
@@ -120,7 +120,7 @@
             const difference = closing - expected;
 
             if (difference !== 0) {
-                differenceAlert.classList.remove('hidden');
+                differenceAlert.classntById('differenceAmount');List.remove('hidden');
                 differenceAmount.textContent = (difference >= 0 ? '+' : '') + 'Rp ' + 
                     new Intl.NumberFormat('id-ID').format(difference);
                 differenceAlert.className = difference >= 0 ? 
