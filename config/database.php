@@ -17,7 +17,7 @@ return [
     */
 
 
-        'default' => env('DB_CONNECTION', 'mongodb'),
+        'default' => env('DB_CONNECTION', 'sqlite'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,28 +31,6 @@ return [
     */
 
     'connections' => [
-
-        'mongodb' => [
-            'driver' => 'mongodb',
-            // Use a full DSN for MongoDB Atlas...
-            'dsn' => env('DB_URI', null),
-            // ...or set DB_SRV=true for Atlas SRV connection without a DSN
-            'srv' => env('DB_SRV', false),
-            // Fallback to individual components if DSN is not set
-            'host'     => env('DB_HOST', '127.0.0.1'),
-            'port'     => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
-            'options'  => array_filter([
-                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
-                'ssl' => env('DB_SSL', true), // SSL is almost always required for Atlas connections
-                'replicaSet' => env('DB_REPLICA_SET'),
-                'authSource' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
-                'retryWrites' => true,
-                'w' => 'majority',
-            ], fn($v) => $v !== null && $v !== ''),
-        ],
 
         'sqlite' => [
             'driver' => 'sqlite',

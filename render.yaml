@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: brewly # Anda bisa ganti nama ini
+    env: php
+    plan: free # Menggunakan paket gratis
+
+    # Perintah yang dijalankan saat build (setiap kali Anda push ke git)
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      npm install
+      npm run build
+      php artisan config:cache
+      php artisan route:cache
+      # Migrasi dijalankan secara otomatis setiap kali deploy
+      php artisan migrate --force
+
+    # Disk persisten untuk menyimpan database SQLite
+    disks:
+      - name: sqlite-disk
+        mountPath: /opt/render/project/src/database # Lokasi folder database Anda di Render
+        sizeGB: 1
+
+    # Environment Variables
+    envVars:
+      - key: APP_URL
+        fromService:
+          type: web
+          name: brewly # Pastikan nama ini sama dengan 'name' di atas
+          property: url
+      - key: APP_KEY
+        generateValue: true # Render akan membuatkan APP_KEY secara otomatis
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        # Path absolut ke file database di dalam disk persisten
+        value: /opt/render/project/src/database/database.sqlite
